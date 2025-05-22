@@ -8,8 +8,8 @@ number n.
 Test your program with the following sample data.
 Example 1- Input n = 22
 Output: Prime pairs are: 3, 19
-5, 17
-11, 11
+                         5, 17
+                         11, 11
 Example 2- Input n = 25
 Output: Invalid Input. Number is Odd.
 Example 3- Input n = 128
@@ -17,7 +17,7 @@ Output: Invalid Input. Number out of range.
  */
 
 import java.util.*;
-class Gold_back
+class Goldback_Number
 {
     public static void main(String args[])
     {
@@ -63,12 +63,12 @@ Terminal output:
 
 Enter a number : 22
 Prime pairs are : 3,19
-		  5,17
-		  11,11
+                  5,17
+                  11,11
 		  
 Enter a number : 25
 Invalid Input. Number is Odd.
 
 Enter a number : 128
 Invalid Input. Number out of range.
-\*
+*/
