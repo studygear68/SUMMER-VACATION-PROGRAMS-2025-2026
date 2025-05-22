@@ -14,7 +14,7 @@ class sentence_length
     public static void main(String[] args) 
     {
         Scanner sc=new Scanner(System.in);
-        System.out.println("Enter a sentence:");
+        System.out.print("Enter a sentence:");
         String str,w="",t,z="AEIOU",v="";
         str=sc.nextLine();
         int i,c=0,s,si,j;
@@ -82,6 +82,7 @@ class sentence_length
         v=v+a[i]+", ";
         }
         System.out.println("\nWords that begin with a v: "+v.substring(0,v.length()-2));
+        sc.close();
     }
 }
 
