@@ -41,4 +41,4 @@ Enter a line : Emotions, controlled and directed to work, is character, By Swami
 Reversed sentence: Vivekananda Swami By  character is  work to directed and controlled  Emotions 
 Enter a line : Hello,How are you,I am fine,take care 
 Reversed sentence: care take fine am I you are How Hello
-*\
+*/
