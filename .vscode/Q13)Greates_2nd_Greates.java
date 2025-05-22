@@ -114,6 +114,32 @@ class matrix_greatest
 }
 
 /*
-Terminal output :
-
-*/
+Terminal output:
+Enter order : 3
+Enter array elements : 
+5
+8
+3
+7
+4
+6
+9
+1
+2
+The Original Matrix : 
+5	8	3	
+7	4	6	
+9	1	2	
+The largest element 9 is in row 3 and column 1
+The second largest element 8 is in row 1 and column 2
+Sorted list:
+3	5	8	
+4	6	7	
+1	2	9	
+Enter order : 3
+Enter array elements : 
+1
+2
+-2
+Retry with a positive number.
+ */
