@@ -71,4 +71,4 @@ Enter a number:58
 58 is a Smith number
 Enter a number:73
 73 is NOT a Smith number
-\*
+*/

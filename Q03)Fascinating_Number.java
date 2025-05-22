@@ -76,4 +76,4 @@ Enter a number of 3 digit or above : 1902
 1902 * 3 = 5706
 Concatenating the results : 1902 3804 5706
 1902 is NOT a Fascinating Number
-\*
+*/

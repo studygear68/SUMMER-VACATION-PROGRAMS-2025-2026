@@ -61,4 +61,4 @@ Enter a number : 131
 No!Prime-Adam
 Enter a number : 31
 Yes!Prime-Adam
-\*
+*/

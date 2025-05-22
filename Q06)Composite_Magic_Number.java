@@ -80,4 +80,4 @@ Enter Lower limit: 10
 Enter Upper limit: 200
 The Magic numbers are: 10,28,46,55,64,82,91,100,118,136,145,154,172,190
 Frequency of Composite Magic Numbers is = 14
-\*
+*/

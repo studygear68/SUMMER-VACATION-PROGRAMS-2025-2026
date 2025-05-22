@@ -73,4 +73,4 @@ Enter Upper limit : 150
 The Unique Digits are : 
 102,103,104,105,106,107,108,109,120,123,124,125,126,127,128,129,130,132,134,135,136,137,138,139,140,142,143,145,146,147,148,149,150
 Frequency of unique digit number number is:33
-\*
+*/
