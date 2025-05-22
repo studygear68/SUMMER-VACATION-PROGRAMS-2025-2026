@@ -23,7 +23,7 @@ The Given Matrix is Skew Symmetric.
 The sum of the left diagonal = 0
 The sum of the right diagonal = 0
 The sum of the border elements = 0
-*/
+ */
 
 import java.util.*;
 class Skew_symmetric
@@ -93,7 +93,7 @@ class Skew_symmetric
     }
 }
 
-\*
+/* 
 Terminal output:
 Enter no of rows : 3
 Enter no of columns : 4
