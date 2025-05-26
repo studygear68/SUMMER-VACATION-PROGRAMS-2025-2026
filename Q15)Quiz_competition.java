@@ -24,47 +24,54 @@ Output: Input size is out of range.
 import java.util.*;
 class quiz_competition
 {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number of participants: ");
-        int n,i,j,count=0,l;
-        n=sc.nextInt();
+        int n, i, j, count = 0, l;
+        n = sc.nextInt();
         sc.nextLine();
-        if(n<3||n>11)
+        if (n < 3 || n > 11) 
         {
             System.out.println("Input size is out of range.");
             System.exit(0);
         }
-        char arr[][]=new char[n][5];
-        char key[]={'A', 'C', 'D', 'B', 'B'};
-        int score[]=new int[n];
-        for(i = 0; i < n; i++) 
+        char arr[][] = new char[n][5];
+        char key[] = {'A', 'C', 'D', 'B', 'B'};
+        int score[] = new int[n];
+        for (i = 0; i < n; i++) 
         {
             System.out.print("Participant " + (i + 1) + "  ");
-            for(j = 0; j < 5; j++) 
-                    arr[i][j] = sc.next().charAt(0);
+            for (j = 0; j < 5; j++) 
+                arr[i][j] = sc.next().charAt(0);
         }
         System.out.println("Scores:");
-        for(i=0;i<n;i++)
+        for (i = 0; i < n; i++) 
         {
-            for(j=0;j<n+1;j++)
+            for (j = 0; j < 5; j++)    // Changed from n+1 to 5
             {
-                if(key[j]==arr[i][j])
-                count++;
+                if (key[j] == arr[i][j])
+                    count++;
             }
-            score[i]=count;
-            System.out.println("Participant "+(i+1)+" = "+count);
-            count=0;
+            score[i] = count;
+            System.out.println("Participant " + (i + 1) + " = " + count);
+            count = 0;
         }
         System.out.println("Highest score:");
-        l=score[0];
-        for(i=0;i<n;i++)
+        l = score[0];
+        for (i = 1; i < n; i++)   // start from 1 because l=score[0]
         {
-            if(l<=score[i])
-            System.out.println("Participant "+(i+1));
+            if (l < score[i])
+                l = score[i];
+        }
+        for (i = 0; i < n; i++) 
+        {
+            if (score[i] == l)
+                System.out.println("Participant " + (i + 1));
         }
     }
 }
+
 /*
 Terminal output :
 Enter the number of participants: 4
