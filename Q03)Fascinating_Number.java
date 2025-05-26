@@ -23,7 +23,7 @@ class fascinating_number
             System.out.println("The number is less than 3 digit");
             System.exit(0);
         }
-        int n2,n3,c=0,d,j,c2=0,c3=0,m=n,co=n;
+        int n2,n3,c=0,j,c2=0,c3=0,m=n;
         char i;
         String nn;
         n2=n*2;
