@@ -22,6 +22,11 @@ class Day_suffix
         String mn[]={"Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"};
         int p = s.indexOf('/');
         int q = s.lastIndexOf('/');
+        if(p==-1 || q==-1)
+        {
+            System.out.println("Invalid Input!!");
+            System.exit(0);
+        }
         int d = Integer.parseInt(s.substring(0,p));
         int m = Integer.parseInt(s.substring(p+1,q));
         int y = Integer.parseInt(s.substring(q+1));
@@ -55,6 +60,7 @@ class Day_suffix
         }    
     }
 }
+
 
 /*
 Terminal output:
