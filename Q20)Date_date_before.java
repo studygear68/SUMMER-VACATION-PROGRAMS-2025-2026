@@ -27,85 +27,94 @@ Output:
 Invalid Day Number!
  */
 
-import java.util.*;  
+import java.util.*;
+
 class DayNumberDateProg 
-{  
-   int[] months = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};  
-   String[] monthNames = {"0", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"};  
-   public String checkDate(int dayNumber, int year) 
-   {  
-      if (year % 4 == 0 ) 
-        months[2] = 29;  
-      int sum = 0; 
-      String month = "";  
-      for (int i = 1; i < months.length; i++) 
-      {  
-        if (dayNumber <= months[i]) 
-        {  
-           month = monthNames[i];  
-           break;  
-        } 
+{
+    public boolean isLeapYear(int year) 
+    {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+
+    public String checkDate(int dayNumber, int year) 
+    {
+        int[] months = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        String[] monthNames = {"0", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"};
+
+        if (isLeapYear(year)) 
+        {
+            months[2] = 29;
+        }
+
+        String month = "";
+        for (int i = 1; i < months.length; i++) 
+        {
+            if (dayNumber <= months[i]) 
+            {
+                month = monthNames[i];
+                break;
+            } 
+            else 
+            {
+                dayNumber -= months[i];
+            }
+        }
+
+        String suffix;
+        if (dayNumber >= 11 && dayNumber <= 13)
+            suffix = "th";
         else 
-           dayNumber -= months[i];  
-      }  
-      String suffix;  
-      if (dayNumber >= 11 && dayNumber <= 13)  
-        suffix = "th";  
-      else 
-      {  
-        switch (dayNumber % 10) 
-        {  
-           case 1:  
-              suffix = "st";  
-              break;  
-           case 2:  
-              suffix = "nd";  
-              break;  
-           case 3:  
-              suffix = "rd";  
-              break;  
-           default:  
-              suffix = "th";  
-        }  
-      }  
-      return dayNumber + suffix + " " + month + " " + year;  
-   }  
-   public static void main(String[] args) 
-   {  
-      Scanner sc = new Scanner(System.in);  
-      System.out.print("Day Number = ");  
-      int dayNumber = sc.nextInt();  
-      System.out.print("Year = ");  
-      int year = sc.nextInt();  
-      if (year%4!=0 && dayNumber==366) 
-      {  
-        System.out.println("Invalid Day Number!");  
-        System.exit(0);  
-      }  
-      if (year < 1000 || year > 9999) 
-      {  
-        System.out.println("Invalid year");  
-        System.exit(0);  
-      }  
-      System.out.print("Date before (n) = ");  
-      int n = sc.nextInt();  
-      if (dayNumber < 1 || dayNumber > 366) 
-      {  
-        System.out.println("Invalid date");  
-        System.exit(0);  
-      }  
-      DayNumberDateProg obj = new DayNumberDateProg();  
-      String output1 = obj.checkDate(dayNumber, year);  
-      System.out.println("Date = " + output1); 
-      if (n > dayNumber) 
-      {  
-        System.out.println("Date before " + n + " days does not lie in the same year.");  
-        System.exit(0);  
-      }  
-      int newDayNumber = dayNumber - n;  
-      String output2 = obj.checkDate(newDayNumber, year);  
-      System.out.println("Date before " + n + " days = " + output2);  
-   }  
+        {
+            switch (dayNumber % 10) 
+            {
+                case 1: suffix = "st"; break;
+                case 2: suffix = "nd"; break;
+                case 3: suffix = "rd"; break;
+                default: suffix = "th";
+            }
+        }
+
+        return dayNumber + suffix + " " + month + " " + year;
+    }
+
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Day Number = ");
+        int dayNumber = sc.nextInt();
+        System.out.print("Year = ");
+        int year = sc.nextInt();
+
+        if (year < 1000 || year > 9999) 
+        {
+            System.out.println("Invalid year");
+            System.exit(0);
+        }
+
+        DayNumberDateProg obj = new DayNumberDateProg();
+        boolean isLeap = obj.isLeapYear(year);
+
+        if ((isLeap && dayNumber > 366) || (!isLeap && dayNumber > 365) || dayNumber < 1) 
+        {
+            System.out.println("Invalid Day Number!");
+            System.exit(0);
+        }
+
+        System.out.print("Date before (n) = ");
+        int n = sc.nextInt();
+
+        if (n > dayNumber) 
+        {
+            System.out.println("Date before " + n + " days does not lie in the same year.");
+            System.exit(0);
+        }
+
+        String output1 = obj.checkDate(dayNumber, year);
+        System.out.println("Date = " + output1);
+        int newDayNumber = dayNumber - n;
+        String output2 = obj.checkDate(newDayNumber, year);
+        System.out.println("Date before " + n + " days = " + output2);
+    }
 }
 
 /*
@@ -119,7 +128,10 @@ Day Number = 99
 Year = 2008
 Date before (n) = 45
 Date = 8th Apr 2008
-Date before 45 days = 23rd Feb 2008
+Date before 45 days = 23rd Feb 
+Day Number = 366
+Year = 1900
+Invalid Day Number!
 Day Number = 20
 Year = 2011
 Date before (n) = 24
