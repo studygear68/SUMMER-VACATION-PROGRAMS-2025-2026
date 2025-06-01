@@ -18,45 +18,40 @@ class Day_suffix
         Scanner sc = new Scanner(System.in);
         System.out.print("Date : ");
         String s = sc.next();
-        int nd[]={0,31,25,31,30,31,30,31,31,30,31,30,31};
-        String mn[]={"Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"};
+        int nd[]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+        String mn[]={"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+        try
+        {
         int p = s.indexOf('/');
         int q = s.lastIndexOf('/');
-        if(p==-1 || q==-1)
-        {
-            System.out.println("Invalid Input!!");
-            System.exit(0);
-        }
         int d = Integer.parseInt(s.substring(0,p));
         int m = Integer.parseInt(s.substring(p+1,q));
         int y = Integer.parseInt(s.substring(q+1));
-        try 
-        {
-            if(y%4==0)
+        if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0))
                 nd[2] = 29;
-            if(y<1000 || y>9999)
+        if(y<1000 || y>9999)
                 System.out.println("Invalid Date!!!");
-            else if(m<=0 || m>12)
+        else if(m<=0 || m>12)
                 System.out.println("Invalid Date!!!");
-            else if(d<=0 || d>nd[m])
+        else if(d<=0 || d>nd[m])
                 System.out.println("Invalid Date!!!");
-            else
+        else
             {
-                String sf;
-                if(d==1 || d==21 || d==31)
+            String sf;
+            if(d==1 || d==21 || d==31)
                     sf="st";
-                else if(d==2 || d==22)
+            else if(d==2 || d==22)
                     sf="nd";
-                else if(d==3 || d==23)
+            else if(d==3 || d==23)
                     sf="rd";
-                else
+            else
                     sf="th";
-                System.out.println("Date : " +d+sf+"/"+mn[m-1]+"/"+y);
+            System.out.println("Date : " +d+sf+"/"+mn[m-1]+"/"+y);
             }
         } 
         catch(Exception e) 
         {
-            System.out.println("Invalid Date!!!");
+            System.out.println("Invalid Format!!!");
         }    
     }
 }
